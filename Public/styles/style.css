@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@100;200;300&display=swap");
+
+* {
+  font-family: "Overpass", Courier, monospace;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  background: none;
+  border: none;
+  color: #fff;
+}
+body {
+  background-color: #000;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 2.5rem 2rem 0;
+}
+nav .logo {
+  display: flex;
+}
+nav .logo img {
+  width: 2rem;
+}
+nav p {
+  margin-top: 0.5rem;
+}
+nav .nav-ul {
+  display: flex;
+}
