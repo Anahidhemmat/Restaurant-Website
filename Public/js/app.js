@@ -66,7 +66,7 @@ const createInputElement = (
   typeAtr = ""
 ) => {
   const input = document.createElement("input");
-  input.className(classAtr);
+  input.className = classAtr;
   input.type = typeAtr;
   input.placeholder = placeholderAtr;
   return input;
@@ -174,5 +174,24 @@ const navigation = createNavElement("nav", [
 navigation.addEventListener("scroll", () => {
   navigation.style.background = "#959494";
 });
-const headerSection = createHeaderElement("header", [headerBg, navigation]);
+
+// -------- search section ---------- //
+const searchIcon = document.createElement("ion-icon");
+searchIcon.name = "search";
+searchIcon.classList = "search-icon";
+const searchInput = createInputElement(
+  "search-input",
+  "  search here",
+  "search"
+);
+const searchSection = createSectionElement("search-section", [
+  searchIcon,
+  searchInput,
+]);
+const headerSection = createHeaderElement("header", [
+  headerBg,
+  navigation,
+  searchSection,
+]);
+
 appContainer.append(headerSection);

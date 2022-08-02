@@ -16,6 +16,8 @@
 .header {
   position: relative;
   overflow: hidden;
+  width: 100vw;
+  height: 100vh;
 }
 .header .header-bg {
   position: absolute;
@@ -117,6 +119,31 @@
   font-size: 25px;
   cursor: pointer;
   display: none !important;
+}
+.search-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  position: relative;
+}
+.search-icon {
+  color: #fff;
+  position: absolute;
+  font-size: 20px;
+  right: 58.7%;
+  top: 31%;
+}
+.search-section .search-input {
+  font-size: 1.5rem;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  padding: 1rem;
+}
+.search-section .search-input::placeholder {
+  margin-left: 0.5rem;
+  color: #fff;
+  font-weight: 100;
 }
 /* Media Queries */
 @media screen and (max-width: 780px) {
