@@ -111,11 +111,22 @@ const crteateIconElements = (classAtr = []) => {
   });
   return icons;
 };
-// creating header section
-//nav button
+const createIconElement = (classAtr = "") => {
+  const i = document.createElement("i");
+  i.className = classAtr;
+  return i;
+};
+// --------- creating header section -------//
+// ----------- header background image --------- //
+const headerBg = createImgElement(
+  "/Public/assets/images/burger.jpg",
+  "header-bg",
+  "burger-image"
+);
+// ----------- nav button --------- //
 const navBtn = createButtonElement("book a table", "button");
 const navBtnSection = createSectionElement("nav-btn", [navBtn]);
-// nav socials
+// ---------- nav socials ---------//
 const navSocialsIcons = crteateIconElements([
   "fa-facebook-f",
   "fa-twitter",
@@ -129,15 +140,20 @@ const navSocialsSection = createSectionElement("nav-socials", [
   ...navSocialsIcons,
 ]);
 
-// nav ul
-const navLis = createLiElements(["home", "menu", "contact", "about us"]);
+// ---------- nav ul -----------//
+const menuIcon = createIconElement("fa-solid fa-bars menu-icon");
+menuIcon.addEventListener("click", () => {
+  navUl.classList.toggle("show-ul");
+  navBtnSection.classList.toggle("show-btn");
+});
+const navLis = createLiElements(["home", "menu", "contact", "about"]);
 for (li of navLis) {
   const a = createAnchorElement("#", "nav-links", li.textContent);
   li.textContent = "";
   li.append(a);
 }
 const navUl = createUlElement("nav-ul", [...navLis]);
-// nav logo
+// ----------- nav logo ---------- //
 const logoSub = createSubElement("Restaurant", "logo-sub");
 const logoText = createPElement("logo-text", "Anahid's", [logoSub]);
 const logoImage = createImgElement(
@@ -147,12 +163,16 @@ const logoImage = createImgElement(
 );
 const logoLink = createAnchorElement("#", "logo-link", [logoImage]);
 const logoSection = createSectionElement("logo", [logoLink, logoText]);
-// navigation
+// ---------- navigation ---------//
 const navigation = createNavElement("nav", [
   logoSection,
   navUl,
   navSocialsSection,
   navBtnSection,
+  menuIcon,
 ]);
-const headerSection = createHeaderElement("header", [navigation]);
+navigation.addEventListener("scroll", () => {
+  navigation.style.background = "#959494";
+});
+const headerSection = createHeaderElement("header", [headerBg, navigation]);
 appContainer.append(headerSection);

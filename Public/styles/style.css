@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Overpass:wght@100;200;300&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap");
 * {
   font-family: "Overpass", Courier, monospace;
   list-style: none;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   outline: none;
@@ -10,25 +11,140 @@
   border: none;
   color: #fff;
 }
-body {
-  background-color: #000;
-}
 
-/* Navigation */
-nav {
+/* --------- header --------- */
+.header {
+  position: relative;
+  overflow: hidden;
+}
+.header .header-bg {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+/* --------- Navigation --------- */
+.nav {
   display: flex;
   justify-content: space-between;
-  margin: 2.5rem 2rem 0;
+  padding: 1.5rem 2rem;
+  position: sticky;
 }
-nav .logo {
+.nav .logo {
   display: flex;
+  align-items: center;
 }
-nav .logo img {
+.nav .logo .logo-img {
   width: 2rem;
+  margin-right: 0.5rem;
 }
-nav p {
+.nav .logo p {
   margin-top: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 200;
+  cursor: pointer;
 }
-nav .nav-ul {
+.nav .logo p sub {
+  margin-left: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 100;
+}
+.nav .nav-ul {
   display: flex;
+  align-items: center;
+  transition: all 0.7s ease;
+}
+.nav .nav-ul li {
+  margin: 0 1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+.nav .nav-ul li a {
+  text-decoration: none;
+  position: relative;
+}
+.nav .nav-ul li a::after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  width: 0;
+  height: 1px;
+  left: 0;
+  bottom: -10px;
+  transition: all 0.3s;
+  transform-origin: center;
+}
+.nav .nav-ul li a.active,
+.nav .nav-ul li a:hover::after {
+  width: 100%;
+}
+.nav .nav-socials {
+  display: flex;
+  margin-top: 0 1rem;
+  align-items: center;
+}
+.nav .nav-socials i {
+  margin: 0 0.5rem;
+  font-weight: 300;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.nav .nav-btn {
+  display: flex;
+  align-items: center;
+  transition: all 0.9s ease;
+}
+.nav .nav-btn button {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #000;
+  background: #fff;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #fff;
+  transition: all 0.6s ease;
+}
+
+.nav .nav-btn button:hover {
+  background: transparent;
+  color: #fff;
+}
+.menu-icon {
+  color: #fff;
+  font-size: 25px;
+  cursor: pointer;
+  display: none !important;
+}
+/* Media Queries */
+@media screen and (max-width: 780px) {
+  .nav-ul {
+    position: fixed;
+    height: 100vh;
+    background: #11192ce3;
+    width: 50%;
+    top: 0;
+    left: -100%;
+    text-align: center;
+    display: block !important;
+  }
+  .nav-ul li {
+    padding: 2rem;
+  }
+  .nav-btn {
+    position: fixed;
+    top: 22rem;
+    left: -100%;
+  }
+  .menu-icon {
+    display: block !important;
+  }
+  .show-ul {
+    left: 0;
+  }
+  .show-btn {
+    left: 16%;
+  }
 }
