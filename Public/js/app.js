@@ -116,3 +116,12 @@ const createIconElement = (classAtr = "") => {
   i.className = classAtr;
   return i;
 };
+
+// ------- header section -------- //
+const navbar = document.querySelector(".navbar");
+const menuBtn = document.querySelector("#menu-btn");
+
+menuBtn.addEventListener("click", () => {
+  menuBtn.classList.toggle("fa-times");
+  navbar.classList.toggle("show-navbar");
+});

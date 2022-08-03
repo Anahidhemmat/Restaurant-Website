@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Overpass:wght@100;200;300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap");
+
+:root {
+  --black: #222;
+  --white: #fff;
+  --light-black: #666;
+  --light-white: #ccc;
+  --light-bg: #f5f5f5;
+}
 * {
   font-family: "Overpass", Courier, monospace;
   list-style: none;
@@ -9,65 +17,62 @@
   outline: none;
   background: none;
   border: none;
-  color: #fff;
+  text-decoration: none;
+  text-transform: capitalize;
+  /* transition: all 0.5s cubic-bezier(0.43, 1.1, 0.62, 1.08); */
+  color: var(--white);
 }
-
+html {
+  font-size: 80%;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+html::-webkit-scrollbar-track {
+  background-color: var(--white);
+}
+html::-webkit-scrollbar-thumb {
+  background-color: var(--black);
+}
+section {
+  padding: 5rem 10%;
+}
 /* --------- header --------- */
 .header {
-  position: relative;
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-}
-.header .header-bg {
-  position: absolute;
-  z-index: -1;
+  padding: 1rem 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
   top: 0;
   left: 0;
-  width: 100%;
+  right: 0;
+  z-index: 1000;
+  background-color: var(--black);
 }
-/* --------- Navigation --------- */
-.nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 1.5rem 2rem;
-  position: sticky;
-}
-.nav .logo {
-  display: flex;
-  align-items: center;
-}
-.nav .logo .logo-img {
-  width: 2rem;
+.header .logo img {
+  width: 4rem;
   margin-right: 0.5rem;
+  display: inline;
 }
-.nav .logo p {
-  margin-top: 0.5rem;
-  font-size: 1.2rem;
-  font-weight: 200;
-  cursor: pointer;
+.header .logo p {
+  display: inline;
+  font-size: 1.5rem;
+  padding-bottom: 2rem;
 }
-.nav .logo p sub {
-  margin-left: 0.3rem;
-  font-size: 0.9rem;
-  font-weight: 100;
+.header .logo p sub {
+  font-size: 1.1rem;
 }
-.nav .nav-ul {
-  display: flex;
-  align-items: center;
-  transition: all 0.7s ease;
-}
-.nav .nav-ul li {
-  margin: 0 1rem;
-  font-weight: 300;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-}
-.nav .nav-ul li a {
-  text-decoration: none;
+
+.header .navbar a {
+  font-size: 1.5rem;
+  margin-left: 2rem;
   position: relative;
 }
-.nav .nav-ul li a::after {
+.header .navbar a::after {
   content: "";
   position: absolute;
   background-color: #fff;
@@ -78,10 +83,15 @@
   transition: all 0.3s;
   transform-origin: center;
 }
-.nav .nav-ul li a.active,
-.nav .nav-ul li a:hover::after {
+.header .navbar a:hover::after {
   width: 100%;
 }
+#menu-btn {
+  font-size: 2rem;
+  cursor: pointer;
+  display: none;
+}
+
 .nav .nav-socials {
   display: flex;
   margin-top: 0 1rem;
@@ -145,33 +155,49 @@
   color: #fff;
   font-weight: 100;
 }
-/* Media Queries */
-@media screen and (max-width: 780px) {
-  .nav-ul {
-    position: fixed;
+/* -------- Media Queries -------- */
+@media screen and (max-width: 1200px) {
+  section {
+    padding: 3rem 5%;
+  }
+}
+@media screen and (max-width: 991px) {
+  section {
+    padding: 3rem 2rem;
+  }
+  html {
+    font-size: 55%;
+  }
+}
+@media screen and (max-width: 768px) {
+  #menu-btn {
+    display: inline-block;
+    transition: all 0.5s ease;
+  }
+  .fa-times {
+    transform: rotate(180deg);
+  }
+  .header .navbar {
+    position: absolute;
+    top: 99%;
+    left: -100%;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.691);
+    width: 40vw;
     height: 100vh;
-    background: #11192ce3;
-    width: 50%;
-    top: 0;
-    left: -100%;
     text-align: center;
-    display: block !important;
+    transition: all 0.7s ease;
   }
-  .nav-ul li {
-    padding: 2rem;
+  .header .navbar a {
+    display: block;
+    margin: 2rem;
   }
-  .nav-btn {
-    position: fixed;
-    top: 22rem;
-    left: -100%;
+  .show-navbar {
+    left: 0 !important;
   }
-  .menu-icon {
-    display: block !important;
-  }
-  .show-ul {
-    left: 0;
-  }
-  .show-btn {
-    left: 16%;
+}
+@media screen and (max-width: 450px) {
+  html {
+    font-size: 50%;
   }
 }
