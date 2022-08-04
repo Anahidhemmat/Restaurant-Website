@@ -37,9 +37,9 @@ html::-webkit-scrollbar-track {
 html::-webkit-scrollbar-thumb {
   background-color: var(--black);
 }
-section {
+/* section {
   padding: 5rem 10%;
-}
+} */
 /* --------- header --------- */
 .header {
   padding: 1rem 10%;
@@ -60,7 +60,7 @@ section {
 }
 .header .logo p {
   display: inline;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   padding-bottom: 2rem;
 }
 .header .logo p sub {
@@ -68,7 +68,7 @@ section {
 }
 
 .header .navbar a {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-left: 2rem;
   position: relative;
 }
@@ -91,7 +91,11 @@ section {
   cursor: pointer;
   display: none;
 }
-
+.header .icons i {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
 .nav .nav-socials {
   display: flex;
   margin-top: 0 1rem;
