@@ -7,6 +7,7 @@
   --light-black: #666;
   --light-white: #ccc;
   --light-bg: #f5f5f5;
+  --dark-bg: rgba(0, 0, 0, 0.5);
 }
 * {
   font-family: "Overpass", Courier, monospace;
@@ -37,10 +38,27 @@ html::-webkit-scrollbar-track {
 html::-webkit-scrollbar-thumb {
   background-color: var(--black);
 }
+body {
+  background-color: #000;
+}
+.btn {
+  margin-top: 1rem;
+  display: inline-block;
+  background: transparent;
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 2rem;
+  padding: 1rem 3rem;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: transparent;
+  color: var(--white);
+}
 /* section {
   padding: 5rem 10%;
 } */
-/* --------- header --------- */
+/* --------- header section --------- */
 .header {
   padding: 1rem 10%;
   display: flex;
@@ -96,7 +114,165 @@ html::-webkit-scrollbar-thumb {
   font-size: 1.5rem;
   cursor: pointer;
 }
-.nav .nav-socials {
+.header .search-form {
+  position: absolute;
+  top: 115%;
+  right: 7%;
+  background: var(--white);
+  width: 50rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s linear;
+  opacity: 0;
+}
+.header .search-form .show-search-form {
+  opacity: 1;
+}
+.header .search-form input {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  text-transform: none;
+  font-size: 1.5rem;
+  color: var(--black);
+}
+.header .search-form input::placeholder {
+  color: var(--black);
+}
+.header .search-form label {
+  color: var(--black);
+  margin-right: 1.5rem;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+/* -------- home section ----------- */
+.home,
+.home-slider {
+  padding: 0;
+}
+.home-slider {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.slider {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--dark-bg);
+  z-index: 2;
+}
+.slider-item,
+.slider-item section {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.prev,
+.next {
+  position: absolute;
+  z-index: 10;
+  height: 100%;
+  width: 40px;
+  background-color: transparent;
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 230ms ease;
+  cursor: pointer;
+  display: none;
+}
+.prev i,
+.next i {
+  padding: 1rem;
+}
+.prev i:hover,
+.next i:hover {
+  background-color: var(--light-black);
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  padding: 1rem;
+}
+.prev {
+  left: 0;
+}
+.next {
+  right: 0;
+}
+.home .slider .content {
+  position: relative;
+  text-align: center;
+  margin: auto;
+  top: 40%;
+}
+@keyframes fadeIn {
+  0% {
+    transform: translateY(-1rem) scale(0);
+  }
+}
+.home .slider .content p {
+  display: block;
+  font-size: 3rem;
+  padding-bottom: 0.5rem;
+  color: var(--white) !important;
+  transition: all 0.5s cubic-bezier(0.43, 1.1, 0.62, 1.08);
+  animation: fadeIn 0.4s cubic-bezier(0.54, 1.3, 0.63, 1.34) 0.2s backwards;
+}
+.home .slider .content h3 {
+  font-size: 5vw;
+  text-transform: uppercase;
+  padding-bottom: 0.5rem;
+  color: #fff;
+  padding: 2rem 0;
+  transition: all 0.5s cubic-bezier(0.43, 1.1, 0.62, 1.08);
+  animation: fadeIn 0.4s cubic-bezier(0.54, 1.3, 0.63, 1.34) 0.4s backwards;
+}
+.home .slider .content .btn {
+  animation: fadeIn 0.4s cubic-bezier(0.54, 1.3, 0.63, 1.34) 0.6s backwards;
+}
+/* .home .slider-container .slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--dark-bg);
+  z-index: 2;
+} */
+/* .home .home-slider .slide-img {
+  transition: all 0.5s ease;
+  background-size: cover !important;
+  background-position: center !important;
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  z-index: 0;
+  opacity: 0;
+}
+.home .home-slider .slide-img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--dark-bg);
+  z-index: -1;
+} */
+/* .nav .nav-socials {
   display: flex;
   margin-top: 0 1rem;
   align-items: center;
@@ -158,17 +334,11 @@ html::-webkit-scrollbar-thumb {
   margin-left: 0.5rem;
   color: #fff;
   font-weight: 100;
-}
+} */
 /* -------- Media Queries -------- */
 @media screen and (max-width: 1200px) {
-  section {
-    padding: 3rem 5%;
-  }
 }
 @media screen and (max-width: 991px) {
-  section {
-    padding: 3rem 2rem;
-  }
   html {
     font-size: 55%;
   }
@@ -203,5 +373,8 @@ html::-webkit-scrollbar-thumb {
 @media screen and (max-width: 450px) {
   html {
     font-size: 50%;
+  }
+  .home .slider .content h3 {
+    font-size: 3rem;
   }
 }

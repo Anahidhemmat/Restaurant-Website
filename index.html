@@ -18,7 +18,7 @@
   </head>
   <body>
     <!-- header section starts -->
-    <section class="header">
+    <header class="header">
       <a href="#" class="logo">
         <img src="Public/assets/images/logo.png" alt="logo" />
         <p>Anahid's <sub>Restaurant</sub></p>
@@ -32,12 +32,38 @@
         <a href="#order">blogs</a>
       </nav>
       <section class="icons">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <i class="fa-solid fa-cart-shopping"></i>
+        <i class="fa-solid fa-magnifying-glass" id="search-btn"></i>
+        <i class="fa-solid fa-cart-shopping" id="cart-btn"></i>
+      </section>
+      <section class="search-form">
+        <input type="search" id="search-box" placeholder="search here..." />
+        <label for="search-bax" class="fa-solid fa-magnifying-glass"></label>
       </section>
       <span id="menu-btn" class="fas fa-bars"></span>
-    </section>
+    </header>
     <!-- header section ends -->
+    <!-- home section starts -->
+    <main class="home" id="home">
+      <section class="home-slider">
+        <section class="slider">
+          <section class="slider-item">
+           <section
+             style="background-image: url(Public/assets/images/home-slide3.jpg);"
+              class="slider-img">
+              <section class="content">
+                <p>outstanding food</p>
+                <h3>delicious cooking</h3>
+                <button class="btn" type="button">Order Online</button>
+              </section>
+            </section>
+              </section>
+             <button type="button" class="prev"><i class="fas fa-chevron-left"></i></button>
+             <button type="button" class="next"><i class="fas fa-chevron-right"></i></button>
+            </section>
+        </section>
+      </section>
+    </main>
+    <!-- home section ends -->
     <!-- ioicons cdn -->
     <script
       type="module"

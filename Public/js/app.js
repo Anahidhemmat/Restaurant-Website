@@ -118,6 +118,7 @@ const createIconElement = (classAtr = "") => {
 };
 
 // ------- header section -------- //
+// ------- responsive navbar ------- //
 const navbar = document.querySelector(".navbar");
 const menuBtn = document.querySelector("#menu-btn");
 
@@ -125,3 +126,71 @@ menuBtn.addEventListener("click", () => {
   menuBtn.classList.toggle("fa-times");
   navbar.classList.toggle("show-navbar");
 });
+
+// ------- search box ------------ //
+const searchForm = document.querySelector(".search-form");
+const searchBtn = document.querySelector("#search-btn");
+
+searchBtn.onclick = () => {
+  searchForm.classList.toggle("show-search-form");
+};
+
+// searchBtn.addEventListener("click", () => {
+//   searchForm.classList.toggle("show-search-form");
+// });
+
+// ----------- home section image slider ---------- //
+const sliderImg = document.querySelector(".slider-img");
+const pContent = document.querySelector(".home .slider .content p");
+const btnContent = document.querySelector(".home .slider .content button");
+const h3Content = document.querySelector(".home .slider .content h3");
+console.log(h3Content);
+
+// buttons
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+
+let imgSrcArray = [
+  "url('Public/assets/images/home-slide3.jpg')",
+  "url('Public/assets/images/burger.jpg')",
+  "url('Public/assets/images/home-slide-3.jpg')",
+  "url('Public/assets/images/home-slide-2.jpg')",
+  "url('Public/assets/images/home-slide-1.jpg')",
+];
+let h3ContentArray = [
+  "Delicious Cooking",
+  "Morning Moment",
+  "Authentic Kitchen",
+];
+let imgIndex = 0;
+let contentIndex = 0;
+
+const prevImg = () => {
+  imgIndex--;
+  contentIndex--;
+  if (0 > imgIndex) {
+    imgIndex = imgSrcArray.length - 1;
+  }
+  if (0 > contentIndex) {
+    contentIndex = h3ContentArray.length - 1;
+  }
+  // sliderImg.setAttribute("src", imgSrcArray[imgIndex]);
+  h3Content.textContent = h3ContentArray[contentIndex];
+  sliderImg.style.backgroundImage = imgSrcArray[imgIndex];
+};
+const nextImg = () => {
+  imgIndex++;
+  contentIndex++;
+  if (imgIndex > imgSrcArray.length - 1) {
+    imgIndex = 0;
+  }
+  if (contentIndex > h3ContentArray.length - 1) {
+    contentIndex = 0;
+  }
+  // sliderImg.setAttribute("src", imgSrcArray[imgIndex]);
+  h3Content.textContent = h3ContentArray[contentIndex];
+  sliderImg.style.backgroundImage = imgSrcArray[imgIndex];
+};
+setInterval(nextImg, 3000);
+prevBtn.addEventListener("click", prevImg);
+nextBtn.addEventListener("click", nextImg);
