@@ -20,16 +20,16 @@
   border: none;
   text-decoration: none;
   text-transform: capitalize;
-  /* transition: all 0.5s cubic-bezier(0.43, 1.1, 0.62, 1.08); */
+  transition: all 0.5s cubic-bezier(0.43, 1.1, 0.62, 1.08);
   color: var(--white);
 }
 html {
   font-size: 80%;
-  overflow: hidden;
+  /* overflow: hidden; */
   scroll-behavior: smooth;
-  scroll-padding-top: 6rem;
+  /* scroll-padding-top: 6rem; */
 }
-html::-webkit-scrollbar {
+/* html::-webkit-scrollbar {
   width: 1rem;
 }
 html::-webkit-scrollbar-track {
@@ -37,10 +37,10 @@ html::-webkit-scrollbar-track {
 }
 html::-webkit-scrollbar-thumb {
   background-color: var(--black);
-}
-body {
+} */
+/* body {
   background-color: #000;
-}
+} */
 .btn {
   margin-top: 1rem;
   display: inline-block;
@@ -147,13 +147,15 @@ body {
   font-size: 1.3rem;
 }
 /* -------- home section ----------- */
+.home {
+  width: 100vw;
+}
 .home,
 .home-slider {
   padding: 0;
 }
 .home-slider {
   width: 100%;
-  height: 100vh;
   display: flex;
 }
 
@@ -242,6 +244,55 @@ body {
 .home .slider .content .btn {
   animation: fadeIn 0.4s cubic-bezier(0.54, 1.3, 0.63, 1.34) 0.6s backwards;
 }
+/* -------- about section --------- */
+.about {
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  color: var(--black);
+  margin: 3rem;
+}
+.about .image {
+  flex: 1 1 41rem;
+  margin-right: 0.5rem;
+}
+.about .image img {
+  width: 100%;
+  height: 80vh;
+}
+.about .content {
+  flex: 1 1 41rem;
+}
+.about .content .title {
+  font-size: 3rem;
+  color: var(--black);
+}
+.about .content p {
+  font-size: 1.6rem;
+  line-height: 2;
+  color: var(--light-black);
+  padding: 1rem 0;
+}
+.about .content .icons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.about .content .icons-container .icons {
+  flex: 1 1 16rem;
+  text-align: center;
+  background: var(--black);
+  padding: 2rem 1rem;
+}
+.about .content .icons-container .icons i {
+  font-size: 2rem;
+}
+.about .content .icons-container .icons h3 {
+  margin-top: 1rem;
+}
+
 /* .home .slider-container .slide::before {
   content: "";
   position: absolute;
