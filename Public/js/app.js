@@ -194,3 +194,6 @@ const nextImg = () => {
 setInterval(nextImg, 3000);
 prevBtn.addEventListener("click", prevImg);
 nextBtn.addEventListener("click", nextImg);
+
+// --------- gallery section ---------//
+lightGallery(document.querySelector(".gallery .gallery-container"));

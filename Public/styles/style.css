@@ -7,7 +7,7 @@
   --light-black: #666;
   --light-white: #ccc;
   --light-bg: #f5f5f5;
-  --dark-bg: rgba(0, 0, 0, 0.5);
+  --dark-bg: rgba(0, 0, 0, 0.6);
 }
 * {
   font-family: "Overpass", Courier, monospace;
@@ -50,6 +50,7 @@ html::-webkit-scrollbar-thumb {
   font-size: 2rem;
   padding: 1rem 3rem;
   cursor: pointer;
+  font-weight: 300;
 }
 .btn:hover {
   background-color: transparent;
@@ -218,6 +219,7 @@ html::-webkit-scrollbar-thumb {
   text-align: center;
   margin: auto;
   top: 40%;
+  z-index: 10;
 }
 @keyframes fadeIn {
   0% {
@@ -233,6 +235,7 @@ html::-webkit-scrollbar-thumb {
   animation: fadeIn 0.4s cubic-bezier(0.54, 1.3, 0.63, 1.34) 0.2s backwards;
 }
 .home .slider .content h3 {
+  font-family: "Overpass";
   font-size: 5vw;
   text-transform: uppercase;
   padding-bottom: 0.5rem;
@@ -243,6 +246,7 @@ html::-webkit-scrollbar-thumb {
 }
 .home .slider .content .btn {
   animation: fadeIn 0.4s cubic-bezier(0.54, 1.3, 0.63, 1.34) 0.6s backwards;
+  font-weight: 300;
 }
 /* -------- about section --------- */
 .about {
@@ -293,6 +297,56 @@ html::-webkit-scrollbar-thumb {
   margin-top: 1rem;
 }
 
+/* -------- gallery section ---------- */
+.gallery {
+  padding: 3rem;
+  background-color: var(--black);
+}
+.gallery .gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 3rem;
+}
+.gallery .heading {
+  text-align: center;
+}
+.gallery .heading span {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+.gallery .heading h3 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+.gallery .gallery-container .box {
+  position: relative;
+  height: 30rem;
+  overflow: hidden;
+}
+.gallery .gallery-container .box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gallery .gallery-container .box .icon {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: var(--dark-bg);
+}
+.gallery .gallery-container .box .icon i {
+  font-size: 3rem;
+}
+.gallery .gallery-container .box:hover .icon {
+  display: flex;
+}
 /* .home .slider-container .slide::before {
   content: "";
   position: absolute;
